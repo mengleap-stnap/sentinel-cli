@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "sentinelapex-ai"
+version = "1.0.0"
+description = "A secure, cross-platform CLI AI assistant with multi-provider support."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "SentinelApex Team", email = "dev@sentinelapex.ai"}
+]
+dependencies = [
+    "typer[all]>=0.9.0",
+    "rich>=13.7.0",
+    "prompt_toolkit>=3.0.43",
+    "httpx>=0.27.0",
+    "pyfiglet>=1.0.2",
+    "markdown-it-py>=3.0.0",
+    "pygments>=2.17.2",
+    "python-dotenv>=1.0.1",
+    "pydantic>=2.6.0",
+    "pyyaml>=6.0.1",
+    "aiosqlite>=0.20.0",
+    "tiktoken>=0.6.0",
+    "cryptography>=42.0.0",
+]
+
+[project.scripts]
+sentinelapex = "sentinelapex.cli:app"
+
+[tool.setuptools.packages.find]
+include = ["sentinelapex*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
