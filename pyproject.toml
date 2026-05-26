@@ -1,6 +1,6 @@
 [build-system]
 requires = ["setuptools>=61.0", "wheel"]
-build-backend = "setuptools.backends._legacy:_Backend"
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "sentinelapex-ai"
@@ -9,9 +9,11 @@ description = "A secure, cross-platform CLI AI assistant with multi-provider sup
 readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.10"
+
 authors = [
     {name = "SentinelApex Team", email = "dev@sentinelapex.ai"}
 ]
+
 dependencies = [
     "typer[all]>=0.9.0",
     "rich>=13.7.0",
