@@ -8,6 +8,7 @@ class Message(BaseModel):
 
     role: Literal["system", "user", "assistant"]
     content: str
+
     timestamp: datetime = Field(
         default_factory=datetime.now
     )
@@ -19,7 +20,6 @@ class ChatSession(BaseModel):
     id: str
     name: str
 
-    # FIXED mutable default bug
     messages: List[Message] = Field(
         default_factory=list
     )
@@ -49,3 +49,23 @@ class ProviderResponse(BaseModel):
     model: str
 
     finish_reason: Optional[str] = None
+
+
+# =========================
+# AI MODEL CLASS
+# =========================
+
+class Model:
+    """
+    Simple AI model interface for SentinelApex.
+    """
+
+    def __init__(self, name: str):
+        self.name = name
+
+    def chat(self, prompt: str) -> str:
+        """
+        Generate a simple response.
+        """
+
+        return f"[{self.name}] {prompt}"
